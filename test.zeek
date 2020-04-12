@@ -1,8 +1,9 @@
 global IPTable :table[addr] of set[string] ;
-global ip:addr;
+
 
 event http_header(c: connection, is_orig: bool, name: string, value: string)
 { 
+  local ip:addr;
   ip = c$id$orig_h;
   if(c$http?$user_agent)
   {
